@@ -4,7 +4,10 @@ A browser-based 3D ragdoll physics sandbox. Build a character, put their name ov
 
 ## Files
 
-- `index.html` – page layout and script tags
+- `index.html` + `home.css` – the **Download now** landing page (pure HTML/CSS). It links to the Windows installer, the browser demo, Worst Day Ever and the GitHub releases page.
+- `duck-model.js` – the MyGuyVR duck character from the desktop game (`wack_myguyvr_character.glb`, embedded so the demo loads it with no extra requests). It's the default dummy in the demo, riding on a duck-shaped ragdoll.
+- `play.html` – the playable browser demo: main menu plus the 3D simulator. This was `index.html` before the redesign.
+
 - `style.css` – the black, grey and purple interface
 - `script.js` – the 3D simulator: renderer, physics, character and face generator, tools, worlds, sound, in-game UI and session saving
 - `menu.css` / `menu.js` – the main menu (START, RESUME, SETTINGS), kept separate from the simulator. The menu talks to the game only through `window.WMG`
@@ -32,12 +35,20 @@ Then open http://localhost:8000. Or use `npx serve` if you have Node.js.
 
 **GitHub Pages:** push the three files to a repository, open Settings → Pages, and choose the branch.
 
+## Download link
+
+The DOWNLOAD buttons point to:
+
+`https://github.com/vocql/wackmyguyvr/releases/download/myguyvr/WackMyGuyVR-Setup-1.0.0.exe`
+
+When you publish a new version, upload the new `.exe` to a GitHub release. Then update that link, plus the "v1.0.0" text, in `index.html`. You can search the file for `1.0.0`.
+
 ## Discord embed
 
 The page already has the tags Discord reads: title, a purple side bar and a large preview image. The MyGuyVR description is part of the image itself, so the embed has no separate description text. Discord only builds embeds from a real hosted address, so:
 
 1. Host the folder, for example on GitHub Pages.
-2. The tags already point at `https://vocql.github.io/wackmyguyvr/`. If you move the site, update every `og:` and `twitter:` URL in `index.html` and `worstday.html`.
+2. The tags in `index.html` (the landing page) already point at `https://vocql.github.io/wackmyguyvr/`. If you move the site, update every `og:` and `twitter:` URL in `index.html` and `worstday.html`.
 3. `index.html`, `worstday.html`, `og-image.png` and `og-worstday.png` must sit at the **root of the repo**, not inside a `wack-myguyvr/` subfolder. Check this by opening `https://vocql.github.io/wackmyguyvr/og-image.png` in a browser: it should show the card.
 4. Push the change and send the link in Discord as a new message.
 
